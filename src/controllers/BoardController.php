@@ -24,7 +24,7 @@ class BoardController extends AbstractController
         switch ($action) {
             case 'delete':
                 $list_id = $_POST["list_id"];
-                $listModel->delete($list_id);
+                $listModel->delete($list_id, $project_id);
                 break;
         }
 
