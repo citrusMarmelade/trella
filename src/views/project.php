@@ -28,12 +28,12 @@
 
             <div class="columns is-flex is-justify-content-center">
                 <?php foreach($lists as $list): ?>
-                    <div class="column is-3 ">
+                    <form class="column is-3" method="POST" action="<?= $_SERVER["REQUEST_URI"] ?>">
+                        <input type="hidden" name="list_id" value="<?= $list->getId() ?>">
                         <div class="card has-background-light mgr-medium">
                             <header class="card-header">
-                                <p class="card-header-title">
-                                    <?= $list->getTitle() ?>
-                                </p>
+                                <p class="card-header-title"><?= $list->getTitle() ?></p>
+                                <button value="delete" name="action" class="card-header-icon">x</button>
                             </header>
                             <div class="card-content">
                                 <div class="notification has-background-white">
@@ -50,7 +50,7 @@
     
                             </div>
                         </div>
-                    </div>
+                    </form>
                 <?php endforeach ?>
             </div>
         </main>

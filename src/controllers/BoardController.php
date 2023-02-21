@@ -20,6 +20,14 @@ class BoardController extends AbstractController
             $listModel->create($title, $project_id);
         }
         
+        $action = $_POST['action'] ?? null;
+        switch ($action) {
+            case 'delete':
+                $list_id = $_POST["list_id"];
+                $listModel->delete($list_id);
+                break;
+        }
+
         $project = $projectModel->find($project_id);
         $lists = $listModel->findByProject($project_id);
 
